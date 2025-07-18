@@ -5,20 +5,10 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version 3.4.5
 
-* System dependencies
+* Rails version 8.0.2
 
-* Configuration
+* database is MySQL
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+이 리포지터리 생성 목적은 ruby on rails를 경험 및 공부하기 위함
