@@ -10,5 +10,6 @@ Rails.application.routes.draw do
 
   namespace :api do
     get "test", to: "test#index"
+    resources :users, only: [:index]
   end
 end
