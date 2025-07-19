@@ -35,7 +35,7 @@ jobs:
           bundler-cache: true
 
       - name: Lint code for consistent style
-        run: bin/rubocop -f github
+        run: bundle exec rubocop -f github
 
   test:
     runs-on: ubuntu-latest
@@ -45,6 +45,10 @@ jobs:
         image: mysql
         env:
           MYSQL_ALLOW_EMPTY_PASSWORD: true
+          RAILS_ENV: test
+          DATABASE_HOST: 127.0.0.1
+          DATABASE_USERNAME: root
+          DATABASE_PASSWORD: ""
         ports:
           - 3306:3306
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
@@ -73,4 +77,7 @@ jobs:
           RAILS_ENV: test
           DATABASE_URL: mysql2://127.0.0.1:3306
           # REDIS_URL: redis://localhost:6379/0
-        run: bin/rails db:test:prepare test
+        run: |
+          bundle exec rails db:create
+          bundle exec rails db:schema:load
+          bundle exec rails test
