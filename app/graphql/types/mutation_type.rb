@@ -12,8 +12,8 @@ module Types
       argument :id, ID, required: true
     end
 
-    def create_user(nickname:, phone_number:, email:)
-      User.create!(nickname: nickname, phoneNumber: phone_number, email: email)
+    def create_user(nickname:, phone_number:, email:, registration_number:)
+      User.create!(nickname: nickname, phone_number: phone_number, email: email, registration_number: registration_number)
     end
 
     def delete_user(id:)
